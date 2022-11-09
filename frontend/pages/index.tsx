@@ -1,8 +1,10 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import { createClient } from 'next-sanity';
+import Head from 'next/head';
+import Image from 'next/image';
 
-export default function Home() {
+import styles from '../styles/Home.module.css';
+
+export default function Home({homeData}: any) {
   return (
     <div className={styles.container}>
       <Head>
@@ -13,11 +15,11 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          Welcome {`${homeData[0].name}`} to <a href="https://nextjs.org">Next.js!</a>
         </h1>
 
         <p className={styles.description}>
-          Get started by editing{' '}
+          Get started by editing{" "}
           <code className={styles.code}>pages/index.tsx</code>
         </p>
 
@@ -60,12 +62,29 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
+          Powered by{" "}
           <span className={styles.logo}>
             <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
           </span>
         </a>
       </footer>
     </div>
-  )
+  );
+}
+
+const client = createClient({
+  projectId: process.env.NEXT_PUBLIC_SANITY_ID,
+  dataset: "production",
+  apiVersion: process.env.NEXT_PUBLIC_SANITY_API_VERSION,
+  useCdn: false,
+});
+
+export async function getStaticProps() {
+  const homeData = await client.fetch(`*[_type == "home"]`);
+
+  return {
+    props: {
+      homeData,
+    },
+  };
 }
