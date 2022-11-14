@@ -3,6 +3,8 @@
   "project": {
     "name": "tom-resume"
   },
+  "version": 2,
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
   "api": {
     "projectId": "yrz0ucub",
     "dataset": "production"
@@ -31,3 +33,4 @@
     }
   ]
 }
+
