@@ -4,7 +4,12 @@
     "name": "tom-resume"
   },
   "version": 2,
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ],
   "api": {
     "projectId": "yrz0ucub",
     "dataset": "production"
@@ -13,7 +18,8 @@
     "@sanity/base",
     "@sanity/default-layout",
     "@sanity/default-login",
-    "@sanity/desk-tool"
+    "@sanity/desk-tool",
+    "markdown"
   ],
   "env": {
     "development": {
@@ -33,4 +39,3 @@
     }
   ]
 }
-

@@ -12,6 +12,12 @@ export default {
         name: 'age',
         type: 'string',
         title: 'Age'
+      },
+      {
+        type: "markdown",
+        description: "A Github flavored markdown field with image uploading",
+        name: "bio"
       }
+  
     ]
   }
