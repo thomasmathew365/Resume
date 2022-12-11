@@ -9,6 +9,7 @@ import home from './home';
 export default createSchema({
   name: 'default',
   types: schemaTypes.concat([
-    home
+    home,
+    blog
   ]),
 })

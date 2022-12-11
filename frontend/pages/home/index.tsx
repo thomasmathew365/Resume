@@ -1,11 +1,44 @@
-import styles from '../../styles/Home.module.scss';
+import PageStacks from '../../components/PageStacks';
+import { LARGE_NAV_ITEMS } from '../../constants/navigation';
 import SanityClient from '../../utils/sanityClient';
+import { NavFunctionTypes } from '../_app';
+import HomeComponent from './components/Home';
 
-export default function Home({ homeData }: any) {
+const componentMap: {[key: string]: () => JSX.Element} = {
+  "HOME": () => <HomeComponent />, 
+  "RESUME":() => <div > resume </div>, 
+  "MY WORK": () => <HomeComponent />
+}
+
+interface HomeProps extends NavFunctionTypes {
+  homeData: any;
+  menuOpen: boolean;
+  selectedMenuGroup: number;
+  selectMenuItem: string;
+}
+
+export default function Home({
+  homeData,
+  selectedMenuGroup,
+  selectMenuItem,
+  menuOpen,
+  setSelectedMenuGroup,
+  setSelectMenuItem,
+  setMenuOpen
+}: HomeProps) {
   return (
-    <div className={styles.container}>
-      <code>{JSON.stringify(homeData)}</code>
-    </div>
+    <PageStacks
+      menuOpen={menuOpen}
+      setSelectedMenuGroup={setSelectedMenuGroup}
+      setSelectMenuItem={setSelectMenuItem}
+      setMenuOpen={setMenuOpen}
+      groupIndex={0}
+      pageIndexState={`${selectedMenuGroup}${selectMenuItem}`}
+      pageList={LARGE_NAV_ITEMS.map((name, key) => ({
+        name,
+        component: componentMap[name](),
+      }))}
+    />
   );
 }
 

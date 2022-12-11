@@ -14,10 +14,11 @@ export default {
         title: 'Age'
       },
       {
-        type: "markdown",
-        description: "A Github flavored markdown field with image uploading",
-        name: "bio"
+        name: 'subtitle',
+        type: 'string',
+        title: 'Subtitle'
       }
+     
   
     ]
   }

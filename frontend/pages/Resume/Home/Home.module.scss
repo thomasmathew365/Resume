@@ -1,0 +1,73 @@
+.floating-flex {
+  height: calc(100vh - 114px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  max-width: 648px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.row {
+  background-color: transparent;
+}
+.name {
+  font-size: 5em;
+  background-color: transparent;
+  margin-bottom: -30px;
+  font-family: "Press Start 2P", cursive;
+  color: var(--yellow);
+}
+.lastname {
+  margin-top: -20px;
+  margin-left: 250px;
+}
+
+.row .profile-image {
+  color: transparent;
+  height: 250px;
+  width: 450px;
+  float: right;
+  position: relative;
+  z-index: -1;
+}
+
+.description-text {
+  color: #333;
+  width: 300px;
+  margin-top: -60px;
+  line-height: 38px;
+}
+
+.description-text-child {
+  background: #ededed;
+  display: inline;
+}
+
+.container-bg {
+  position: absolute;
+  top: 60px;
+  bottom: -60px;
+  left: -100px;
+  right: 100px;
+  z-index: -2;
+  filter: contrast(7);
+  --mask: linear-gradient(red, #{rgba(var(--grey), 0.45)});
+
+  &::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: radial-gradient(var(--grey), transparent) 0 0/ 0.5em 0.5em space;
+    -webkit-mask: var(--mask);
+    mask: var(--mask);
+    content: "";
+    opacity: 0.4;
+  }
+}
