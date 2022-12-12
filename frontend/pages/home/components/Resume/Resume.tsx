@@ -3,27 +3,27 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
 import { ReactElement, useCallback } from 'react';
 
+import resumeData from '../../../../constants/resumeData';
 import styles from './Resume.module.scss';
-import resumeData from './resumeData';
 
 export default function Resume(): ReactElement {
     const experienceRenderer = useCallback(() => {
         return (
             <div className="experience-wrapper">
-                {resumeData.work.map(work => {
+                {resumeData.work.map((work, k) => {
                     return (
                         <>
-                            <div className="company-wrapper clearfix">
+                            <div className="company-wrapper clearfix" key={`comp-${k}`}>
                                 <div className="experience-title">{work.company}</div>
                                 <div className="time">{`${work.startDate} - ${work.endDate}`}</div>
                             </div>
 
-                            <div className="job-wrapper clearfix">
+                            <div key={`job-${k}`} className="job-wrapper clearfix" >
                                 <div className="experience-title">{work.position}</div>
                                 <div className="company-description">
-                                    {work.highlights.map(highlight => {
+                                    {work.highlights.map((highlight, k) => {
                                         return (
-                                            <div>{highlight}</div>
+                                            <div key={k}>{highlight}</div>
                                         )
                                     })}
                                 </div>
@@ -39,15 +39,15 @@ export default function Resume(): ReactElement {
     const educationRenderer = useCallback(() => {
         return (
             <div className="experience-wrapper">
-                {resumeData.education.map(education => {
+                {resumeData.education.map((education, k ) => {
                     return (
                         <>
-                            <div className="company-wrapper clearfix">
+                            <div className="company-wrapper clearfix" key={`comp-${k}`}>
                                 <div className="experience-title">{education.institution}</div>
                                 <div className="time">{`${education.startDate} - ${education.endDate}`}</div>
                             </div>
 
-                            <div className="job-wrapper clearfix">
+                            <div className="job-wrapper clearfix" key={`job-${k}`}>
                                 <div className="experience-title">{education.studyType}</div>
                                 <div className="company-description">{education.location}</div>
 
@@ -95,11 +95,11 @@ export default function Resume(): ReactElement {
                     <div className="section-wrapper clearfix">
                         <h3 className="section-title">Skills</h3>
                         <ul>
-                            {resumeData.skills.map(skill => {
+                            {resumeData.skills.map((skill, k) => {
                                 return (
                                     <>
-                                        <li className="skill-percentage" >{skill.name}</li>
-                                        <div className="skill-subtitle">{skill.keywords.join(', ')}</div>
+                                        <li className="skill-percentage" key={`li-${k}`}>{skill.name}</li>
+                                        <div className="skill-subtitle" key={`sub-${k}`}>{skill.keywords.join(', ')}</div>
                                     </>
                                 )
                             })}
