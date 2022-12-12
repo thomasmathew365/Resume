@@ -127,7 +127,7 @@ export default function Resume(): ReactElement {
 
             <div className="clearfix"></div>
 
-            <a href="/Resume-Thomas-Mathew.pdf" download className={classNames(styles["float"])}>
+            <a href="/resume-thomas-2022.pdf" download className={classNames(styles["float"])}>
                 <FontAwesomeIcon icon={faFileDownload} size="2x" />
             </a>
         </div >
