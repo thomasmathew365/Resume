@@ -3,10 +3,11 @@ import { LARGE_NAV_ITEMS } from '../../constants/navigation';
 import SanityClient from '../../utils/sanityClient';
 import { NavFunctionTypes } from '../_app';
 import HomeComponent from './components/Home';
+import ResumeComponent from './components/Resume';
 
 const componentMap: {[key: string]: () => JSX.Element} = {
   "HOME": () => <HomeComponent />, 
-  "RESUME":() => <div > resume </div>, 
+  "RESUME":() => <ResumeComponent />, 
   "MY WORK": () => <HomeComponent />
 }
 
