@@ -1,16 +1,17 @@
-// First, we must import the schema creator
-import createSchema from 'part:@sanity/base/schema-creator'
-
 // Then import schema types from any plugins that might expose them
-import schemaTypes from 'all:part:@sanity/base/schema-type'
+import schemaTypes from 'all:part:@sanity/base/schema-type';
+import createSchema from 'part:@sanity/base/schema-creator';
 
+import author from './author';
+import blockContent from './blockContent';
+import blog from './blog';
+import category from './category';
+import comment from './comment';
+import home from './home';
+import post from './post';
+
+// First, we must import the schema creator
 // We import object and document schemas
-import blockContent from './blockContent'
-import category from './category'
-import post from './post'
-import author from './author'
-import comment from './comment'
-
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
   // We name our schema
@@ -27,5 +28,7 @@ export default createSchema({
     // { type: 'typename' } in other document schemas
     blockContent,
     comment,
+    blog,
+    home
   ]),
 })
