@@ -92,10 +92,13 @@
 }
 
 .name-super {
-  font-size: 0.125em;
+  font-size: 0.2em;
   position: absolute;
-  right: -80px;
+  right: -40px;
   top: 50px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+
 }
 
 
@@ -113,10 +116,11 @@
   }
 
   .name-super {
-    font-size: 0.125em;
+    font-size: 0.25em;
     position: absolute;
-    right: -50px;
-    top: 35px;
+    right: -30px;
+    top: 30px;
+    
   }
   .description-text {
     width: 300px;
@@ -151,9 +155,9 @@
     width: 300px;
   }
   .name-super {
-    font-size: 0.125em;
+    font-size: 0.25em;
     position: absolute;
-    right: -50px;
+    right: 20px;
     top: 15px;
   }
   .description-text {
