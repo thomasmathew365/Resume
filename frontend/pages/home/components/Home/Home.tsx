@@ -14,7 +14,7 @@ export default function Home(): ReactElement {
           <div className={classNames(styles["firstname"])}>Thomas</div>
           <div className={classNames(styles["lastname"])}>Mathew</div>
         </div>
-        <div className={classNames(styles["row"])}>
+        <div className={classNames(styles["row"], styles["image"])}>
           <div className={classNames(styles["profile-image"])}>
             <Image
               src={profilePic}
@@ -24,7 +24,7 @@ export default function Home(): ReactElement {
             ></Image>
           </div>
         </div>
-        <div className={classNames(styles["row"])}>
+        <div className={classNames(styles["row"], styles["description"])}>
           <p className={classNames(styles["description-text"])}>
             <span className={classNames(styles["description-text-child"])}>
               My focus is primarily on front end UI, however I have taken many
