@@ -56,10 +56,10 @@
 
 .description-text {
   color: #333;
-  width: 300px;
+  width: 400px;
   margin-top: -60px;
   line-height: 38px;
-  
+  font-size: 1.4em;
 }
 
 .description-text-child {
@@ -91,13 +91,36 @@
   }
 }
 
+.name-super {
+  font-size: 0.125em;
+  position: absolute;
+  right: -80px;
+  top: 50px;
+}
+
 
 @media screen and (max-width: 60em) {
   //tablet
+  .name {
+    font-size: 4em;
+    left: -30px;
+    top: 30px;
+  }
   .description {
     bottom:150px;
-    left: 40px;
+    left: 20px;
     font-size: 1.2em;
+  }
+
+  .name-super {
+    font-size: 0.125em;
+    position: absolute;
+    right: -50px;
+    top: 35px;
+  }
+  .description-text {
+    width: 300px;
+    font-size: 1em;
   }
 }
 
@@ -106,25 +129,36 @@
   .name {
     font-size: 2em;
     left: 10px;
-  
+    top: 100px;
   }
   .lastname {
     margin-left: 150px
   }
   .image{
-    top: 50px;
+    top: 150px;
     right: 0;
   }
   .description {
-    bottom: 250px;
-    left: 10px;
+    bottom: 120px;
+    left: 30px;
   }
   .container {
-    width: 500px;
-      height: 600px;
+    width: 600px;
+    height: 600px;
   }
   .row .profile-image {
     height: 200px;
     width: 300px;
   }
+  .name-super {
+    font-size: 0.125em;
+    position: absolute;
+    right: -50px;
+    top: 15px;
+  }
+  .description-text {
+    width: 300px;
+    font-size: 1em;
+  }
+  
 }
