@@ -94,17 +94,37 @@
 
 @media screen and (max-width: 60em) {
   //tablet
- 
+  .description {
+    bottom:150px;
+    left: 40px;
+    font-size: 1.2em;
+  }
 }
 
 @media screen and (max-width: 40em) {
   //mobile
   .name {
-    font-size: 3em;
-    margin-bottom: -30px;
+    font-size: 2em;
+    left: 10px;
+  
   }
   .lastname {
-    margin-top: 0px;
-    margin-left: 100px;
+    margin-left: 150px
+  }
+  .image{
+    top: 50px;
+    right: 0;
+  }
+  .description {
+    bottom: 250px;
+    left: 10px;
+  }
+  .container {
+    width: 500px;
+      height: 600px;
+  }
+  .row .profile-image {
+    height: 200px;
+    width: 300px;
   }
 }
