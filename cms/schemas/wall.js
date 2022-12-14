@@ -38,7 +38,9 @@ export default {
         },
         prepare({ name, comment, email, publishedAt }) {
             return {
-                name, comment, email, publishedAt
+                name, comment, email, publishedAt,
+                title: `${comment} by ${name}`,
+
             }
         },
     },
