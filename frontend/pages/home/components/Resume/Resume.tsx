@@ -13,13 +13,13 @@ export default function Resume(): ReactElement {
             <div className={classNames(styles["experience-wrapper"])}>
                 {resumeData.work.map((work, k) => {
                     return (
-                        <>
-                            <div className={classNames(styles["company-wrapper"], styles["clearfix"])} key={`comp-${k}`}>
+                        <span key={`comp-${k}`}>
+                            <div className={classNames(styles["company-wrapper"], styles["clearfix"])} >
                                 <div className={classNames(styles["experience-title"])}>{work.company}</div>
                                 <div className={classNames(styles["time"])}>{`${work.startDate} - ${work.endDate}`}</div>
                             </div>
 
-                            <div key={`job-${k}`} className={classNames(styles["job-wrapper"], styles["clearfix"])} >
+                            <div className={classNames(styles["job-wrapper"], styles["clearfix"])} >
                                 <div className={classNames(styles["experience-title"])}>{work.position}</div>
                                 <div className={classNames(styles["company-description"])}>
                                     {work.highlights.map((highlight, k) => {
@@ -29,7 +29,7 @@ export default function Resume(): ReactElement {
                                     })}
                                 </div>
                             </div>
-                        </>
+                        </span>
                     )
                 })}
             </div>
@@ -83,9 +83,9 @@ export default function Resume(): ReactElement {
                             <li>{resumeData.basics.phone}</li>
                             <li>{resumeData.basics.email}</li>
                             <li>{resumeData.basics.location.address}</li>
-                            <li><a href={`https://${resumeData.basics.website}`}>{resumeData.basics.website}</a></li>
-                            <li><a href="https://github.com/thomasmathew365" target={"_blank"}>Thomasmathew365</a></li>
-                            <li><a href="https://linkedin.com/in/thomasmathew365" target={"_blank"}>Thomasmathew365</a></li>
+                            <li><a className={classNames(styles["link"])} href={`https://${resumeData.basics.website}`} target={"_blank"}>{resumeData.basics.website}</a></li>
+                            <li><a className={classNames(styles["link"])} href="https://github.com/thomasmathew365" target={"_blank"}>Thomasmathew365</a></li>
+                            <li><a className={classNames(styles["link"])} href="https://linkedin.com/in/thomasmathew365" target={"_blank"}>Thomasmathew365</a></li>
                         </ul>
                     </div>
                     <div className={classNames(styles["contact-presentation"])}>

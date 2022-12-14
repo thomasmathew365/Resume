@@ -4,11 +4,12 @@ import SanityClient from '../../utils/sanityClient';
 import { NavFunctionTypes } from '../_app';
 import HomeComponent from './components/Home';
 import ResumeComponent from './components/Resume';
+import WallComponent from './components/Wall';
 
 const componentMap: {[key: string]: () => JSX.Element} = {
   "HOME": () => <HomeComponent />, 
   "RESUME":() => <ResumeComponent />, 
-  "MY WORK": () => <HomeComponent />
+  "MY WORK": () => <WallComponent />
 }
 
 interface HomeProps extends NavFunctionTypes {

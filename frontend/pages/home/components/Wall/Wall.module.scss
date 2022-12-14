@@ -9,7 +9,7 @@
     height: 60px;
     align-items: center;
     justify-content: center;
-    bottom: 80px;
+    bottom: 40px;
     right: 40px;
     background-color: var(--yellow);
     color: var(--grey);
@@ -37,10 +37,10 @@
 //   line-height: 1.5em;
 // }
 
-.link {
-  color: var(--yellow);
-  text-decoration: none;
-}
+// a {
+//   color: var(--yellow);
+//   text-decoration: none;
+// }
 
 .clearfix::after,
 .clearfix::before {

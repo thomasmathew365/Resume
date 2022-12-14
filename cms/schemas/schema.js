@@ -9,6 +9,7 @@ import category from './category';
 import comment from './comment';
 import home from './home';
 import post from './post';
+import wall from './wall';
 
 // First, we must import the schema creator
 // We import object and document schemas
@@ -29,6 +30,7 @@ export default createSchema({
     blockContent,
     comment,
     blog,
-    home
+    home,
+    wall
   ]),
 })
