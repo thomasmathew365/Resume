@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import Image from 'next/image';
 import { ReactElement } from 'react';
 
-import profilePic from '../../../../public/profile.png';
+import profilePic from '../../../../public/profile.jpg';
 import styles from './Home.module.scss';
 
 export default function Home(): ReactElement {

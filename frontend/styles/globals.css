@@ -8,6 +8,8 @@ font-family: 'Nunito', sans-serif;
 font-family: 'Orienta', sans-serif; 
 
 font-family: 'Press Start 2P', cursive;
+
+font-family: 'Gochi Hand', cursive;
 */
 
 
@@ -15,7 +17,10 @@ font-family: 'Press Start 2P', cursive;
   --grey: #4f4f64;
   --yellow: #e8c547;
   --light-grey: #cdd1c4;
-  --red: #c95d63 --dark-grey: #2a2b30
+  --red: #c95d63;
+  --dark-grey: #2a2b30;
+  --paper-shadow: rgba(255,255,255, 0.2);
+
 }
 
 html {

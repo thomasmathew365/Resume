@@ -3,7 +3,7 @@ import { createClient } from 'next-sanity';
 export default class SanityClient {
   client;
 
-  constructor() {
+  constructor() {    
     this.client = createClient({
       projectId: process.env.NEXT_PUBLIC_SANITY_ID,
       dataset: "production",

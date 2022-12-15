@@ -6,21 +6,21 @@ import HomeComponent from './components/Home';
 import ResumeComponent from './components/Resume';
 import WallComponent from './components/Wall';
 
-const componentMap: {[key: string]: () => JSX.Element} = {
+const componentMap: {[key: string]: (data: any) => JSX.Element} = {
   "HOME": () => <HomeComponent />, 
   "RESUME":() => <ResumeComponent />, 
-  "MY WORK": () => <WallComponent />
+  "MY WORK": (dataProps) => <WallComponent data={dataProps}/>
 }
 
 interface HomeProps extends NavFunctionTypes {
-  homeData: any;
+  wallData: any;
   menuOpen: boolean;
   selectedMenuGroup: number;
   selectMenuItem: string;
 }
 
 export default function Home({
-  homeData,
+  wallData,
   selectedMenuGroup,
   selectMenuItem,
   menuOpen,
@@ -28,6 +28,7 @@ export default function Home({
   setSelectMenuItem,
   setMenuOpen
 }: HomeProps) {
+  const dataProps = [null, null, wallData];
   return (
     <PageStacks
       menuOpen={menuOpen}
@@ -38,7 +39,7 @@ export default function Home({
       pageIndexState={`${selectedMenuGroup}${selectMenuItem}`}
       pageList={LARGE_NAV_ITEMS.map((name, key) => ({
         name,
-        component: componentMap[name](),
+        component: componentMap[name](dataProps[key]),
       }))}
     />
   );
@@ -46,10 +47,10 @@ export default function Home({
 
 export async function getStaticProps() {
   const client = new SanityClient();
-  const homeData = await client.Query(`*[_type == "home"]`);
+  const wallData = await client.Query(`*[_type == 'wall']`);
   return {
     props: {
-      homeData,
+      wallData,
     },
   };
 }

@@ -1,8 +1,9 @@
 import { faFileDownload } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { ReactElement, useCallback } from 'react';
+import React, { ReactElement, useCallback } from 'react';
 
 import resumeData from '../../../../constants/resumeData';
 import styles from './Resume.module.scss';
@@ -13,7 +14,7 @@ export default function Resume(): ReactElement {
             <div className={classNames(styles["experience-wrapper"])}>
                 {resumeData.work.map((work, k) => {
                     return (
-                        <span key={`comp-${k}`}>
+                        <React.Fragment key={`comp-${k}`}>
                             <div className={classNames(styles["company-wrapper"], styles["clearfix"])} >
                                 <div className={classNames(styles["experience-title"])}>{work.company}</div>
                                 <div className={classNames(styles["time"])}>{`${work.startDate} - ${work.endDate}`}</div>
@@ -29,7 +30,7 @@ export default function Resume(): ReactElement {
                                     })}
                                 </div>
                             </div>
-                        </span>
+                        </React.Fragment>
                     )
                 })}
             </div>
@@ -42,18 +43,18 @@ export default function Resume(): ReactElement {
             <div className={classNames(styles["experience-wrapper"])}>
                 {resumeData.education.map((education, k) => {
                     return (
-                        <>
-                            <div className={classNames(styles["company-wrapper"], styles["clearfix"])} key={`comp-${k}`}>
+                        <React.Fragment key={`comp-${k}`}>
+                            <div className={classNames(styles["company-wrapper"], styles["clearfix"])} >
                                 <div className={classNames(styles["experience-title"])}>{education.institution}</div>
                                 <div className={classNames(styles["time"])}>{`${education.startDate} - ${education.endDate}`}</div>
                             </div>
 
-                            <div className={classNames(styles["job-wrapper"], styles["clearfix"])} key={`job-${k}`}>
+                            <div className={classNames(styles["job-wrapper"], styles["clearfix"])} >
                                 <div className={classNames(styles["experience-title"])}>{education.studyType}</div>
                                 <div className={classNames(styles["company-description"])}>{education.location}</div>
 
                             </div>
-                        </>
+                        </React.Fragment>
                     )
                 })}
             </div>
@@ -64,7 +65,7 @@ export default function Resume(): ReactElement {
         <div className={classNames(styles["resume-wrapper"])}>
             <section className={classNames(styles["profile"], styles["section-padding"])}>
                 <div className={classNames(styles["container"])}>
-                <Image className={classNames(styles["profile-img"])} alt="profile-image" src="/profile-2.jpg" width={175} height={175}/>
+                    <Image className={classNames(styles["profile-img"])} alt="profile-image" src="/profile-2.jpg" width={175} height={175} />
                     <div className={classNames(styles["name-wrapper"])}>
                         <h1>{resumeData.basics.name.split(' ')[0]}<br />{resumeData.basics.name.split(' ')[1]}</h1>
 
@@ -96,10 +97,10 @@ export default function Resume(): ReactElement {
                         <ul>
                             {resumeData.skills.map((skill, k) => {
                                 return (
-                                    <>
-                                        <li className={classNames(styles["skill-percentage"])} key={`li-${k}`}>{skill.name}</li>
-                                        <div className={classNames(styles["skill-subtitle"])} key={`sub-${k}`}>{skill.keywords.join(', ')}</div>
-                                    </>
+                                    <React.Fragment key={k}>
+                                        <li className={classNames(styles["skill-percentage"])} >{skill.name}</li>
+                                        <div className={classNames(styles["skill-subtitle"])}>{skill.keywords.join(', ')}</div>
+                                    </React.Fragment>
                                 )
                             })}
                         </ul>
@@ -123,9 +124,14 @@ export default function Resume(): ReactElement {
 
             <div className={classNames(styles["clearfix"])}></div>
 
-            <a href="/resume-thomas-2022.pdf" download className={classNames(styles["float"])}>
+
+
+            <motion.a
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                href="/resume-thomas-2022.pdf" download className={classNames(styles["float"])}            >
                 <FontAwesomeIcon icon={faFileDownload} size="2x" />
-            </a>
+            </motion.a>
         </div >
     );
 }

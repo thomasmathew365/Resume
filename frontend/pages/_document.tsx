@@ -16,10 +16,7 @@ class MyDocument extends Document {
             href="https://fonts.gstatic.com"
             crossOrigin="true"
           />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;1,100&family=Nunito&family=Orienta&family=Press+Start+2P&display=swap"
-            rel="stylesheet"
-          />
+          <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Josefin+Sans:ital,wght@0,100;1,100&family=Nunito&family=Orienta&family=Press+Start+2P&display=swap" rel="stylesheet" />
         </Head>
         <body>
           <Main />

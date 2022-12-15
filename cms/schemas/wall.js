@@ -30,6 +30,15 @@ export default {
             type: 'datetime',
         }
     ],
+    orderings: [
+        {
+          title: 'Published at',
+          name: 'publishedAt',
+          by: [
+            {field: 'publishedAt', direction: 'desc'}
+          ]
+        },
+      ],
     preview: {
         select: {
             name: 'name',

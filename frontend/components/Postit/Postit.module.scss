@@ -1,0 +1,272 @@
+// .postit {
+//   line-height: 1;
+//   text-align:center;     
+//   width: 275px;    
+//   color: var(--grey);
+//   margin: 25px;    
+//   min-height:250px;
+//   max-height:250px;
+//   padding-top:35px;
+//   position:relative;   
+//   border:1px solid #E8E8E8;  
+//   border-top:60px solid #fdfd86;
+//   font-family: 'Gochi Hand', cursive;
+//   font-size:18px;      
+//   border-bottom-right-radius: 60px 5px;
+//   display:inline-block;    
+//    background: #ffff88; /* Old browsers */
+// background: -moz-linear-gradient(-45deg, #ffff88 81%, #ffff88 82%, #ffff88 82%, #ffffc6 100%); /* FF3.6+ */
+// background: -webkit-gradient(linear, left top, right bottom, color-stop(81%,#ffff88), color-stop(82%,#ffff88), color-stop(82%,#ffff88), color-stop(100%,#ffffc6)); /* Chrome,Safari4+ */
+// background: -webkit-linear-gradient(-45deg, #ffff88 81%,#ffff88 82%,#ffff88 82%,#ffffc6 100%); /* Chrome10+,Safari5.1+ */
+// background: -o-linear-gradient(-45deg, #ffff88 81%,#ffff88 82%,#ffff88 82%,#ffffc6 100%); /* Opera 11.10+ */
+// background: -ms-linear-gradient(-45deg, #ffff88 81%,#ffff88 82%,#ffff88 82%,#ffffc6 100%); /* IE10+ */
+// background: linear-gradient(135deg, #ffff88 81%,#ffff88 82%,#ffff88 82%,#ffffc6 100%); /* W3C */
+// filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffff88', endColorstr='#ffffc6',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+// }
+
+// .postit:after {     
+//    content: "";
+//   position:absolute;
+//   z-index:-1;
+//   right:-0px; bottom:20px;
+//   width:200px;
+//   height: 25px;
+//   background: rgba(0, 0, 0, 0.2);
+//   box-shadow:2px 15px 5px rgba(255, 255, 255, 0.0);
+// -moz-transform: matrix(-1, -0.1, 0, 1, 0, 0);
+//  -webkit-transform: matrix(-1, -0.1, 0, 1, 0, 0);
+//       -o-transform: matrix(-1, -0.1, 0, 1, 0, 0);
+//      -ms-transform: matrix(-1, -0.1, 0, 1, 0, 0);
+//          transform: matrix(-1, -0.1, 0, 1, 0, 0);
+// }
+
+
+
+
+// .box {
+//   position: relative;
+//   margin: 40px auto;
+//   width: 400px;
+//   height: 350px;
+//   background: #fff;
+//   border-radius: 2px;
+// }
+
+// .box::before,
+// .box::after {
+//   content: '';
+//   position: absolute;
+//   bottom: 10px;
+//   width: 40%;
+//   height: 10px;
+//   box-shadow: 0 5px 14px rgba(0,0,0,.7);
+//   z-index: -1;
+//   transition: all .3s ease-in-out;
+// }
+
+// .box::before {
+//   left: 15px;
+//   transform: skew(-5deg) rotate(-5deg);
+// }
+
+// .box::after {
+//   right: 15px;
+//   transform: skew(5deg) rotate(5deg);
+// }
+
+// .box:hover::before,
+// .box:hover::after {
+//   box-shadow: 0 2px 14px rgba(0,0,0,.4);
+// }
+
+// .box:hover::before {
+//   left: 5px;
+// }
+
+// .box:hover::after {
+//   right: 5px;
+// }
+
+
+
+// body {
+//   display: flex;
+//   justify-content: center;
+//   padding: 10vmin;
+//   background-color: #c3cde8;
+//   font-family: "Caveat", cursive;
+//   font-size: 2rem;
+// }
+
+
+
+.paper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  // width: 325px;
+  width: 100%;
+  min-height: 175px;
+  box-shadow: 3px 3px 2px var(--paper-shadow);
+  // transform: rotate(10deg);
+  transform-origin: top left;
+  color: var(--grey);
+  font-family: 'Gochi Hand', cursive;
+  padding: 15px;
+}
+
+.paper-yellow {
+  --paper-dark: #ffed87;
+  --paper-color: #FDF1C9;
+  background: linear-gradient(
+    135deg,
+    var(--paper-dark),
+    30%,
+    var(--paper-color)
+  );
+}
+
+.paper-green {
+  --paper-dark: #aed143;
+  --paper-color: #DBFBCC;
+  background: linear-gradient(
+    135deg,
+    var(--paper-dark),
+    30%,
+    var(--paper-color)
+  );
+}
+.paper-orange {
+  --paper-dark: #f49f3f;
+  --paper-color: #FDF1C9;
+  
+  background: linear-gradient(
+    135deg,
+    var(--paper-dark),
+    30%,
+    var(--paper-color)
+  );
+}
+.paper-pink {
+  --paper-dark: #d35595;
+  --paper-color: #F2D9EF;
+  
+  background: linear-gradient(
+    135deg,
+    var(--paper-dark),
+    30%,
+    var(--paper-color)
+  );
+}
+.paper-aqua {
+  --paper-dark: #51bcb3;
+  --paper-color: #CDFAE3;
+  
+  background: linear-gradient(
+    135deg,
+    var(--paper-dark),
+    30%,
+    var(--paper-color)
+  );
+}
+
+.paper p {
+  margin: auto;
+}
+
+.pin {
+  --pin-color: #d02627;
+  --pin-dark: #9e0608;
+  --pin-light: #fc7e7d;
+
+  position: absolute;
+  width: 60px;
+  height: 50px;
+}
+
+.pin-left {
+  left: 20px;
+  top: -15px;
+}
+.pin-right {
+  right: -20px;
+    top: -15px;
+}
+
+.shadow {
+  position: absolute;
+  top: 18px;
+  left: -8px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: radial-gradient(var(--paper-shadow), 20%, rgba(201, 191, 141, 0));
+}
+
+.metal {
+  position: absolute;
+  width: 5px;
+  height: 20px;
+  background: linear-gradient(to right, #808080, 40%, #eae8e8, 50%, #808080);
+  border-radius: 0 0 30% 30%;
+  transform: rotate(50deg);
+  transform-origin: bottom left;
+  top: 15px;
+  border-bottom: 1px solid #808080;
+}
+
+.bottom-circle {
+  position: absolute;
+  right: 15px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: var(--pin-color);
+  background: radial-gradient(
+    circle at bottom right,
+    var(--pin-light),
+    25%,
+    var(--pin-dark),
+    90%,
+    var(--pin-color)
+  );
+}
+
+/* Barrel */
+.bottom-circle::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -2px;
+  width: 20px;
+  height: 30px;
+  transform: rotate(55deg);
+  transform-origin: 100% 100%;
+  border-radius: 0 0 40% 40%;
+  background: linear-gradient(
+    to right,
+    var(--pin-dark),
+    30%,
+    var(--pin-color),
+    90%,
+    var(--pin-light)
+  );
+}
+
+/* Top circle */
+.bottom-circle::after {
+  content: "";
+  position: absolute;
+  right: -10px;
+  top: -5px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at right,
+    var(--pin-light),
+    30%,
+    var(--pin-color),
+    var(--pin-dark) 80%
+  );
+}
