@@ -1,5 +1,3 @@
-import 'reactjs-popup/dist/index.css';
-
 import { faAdd } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
@@ -115,14 +113,14 @@ export default function Wall({ data }: any): ReactElement {
     );
 
     const PostIts = useMemo(() => {
-        return data.map(({ comment, name, email }: any, k: number) => {
+        return data && data.map(({ comment, name, email }: any, k: number) => {
             return (
-                <motion.div variants={item} >
-                    <Postit key={k}><PostItContent comment={comment} name={name} email={email}/></Postit>
+                <motion.div key={k} variants={item} >
+                    <Postit ><PostItContent comment={comment} name={name} email={email}/></Postit>
                 </motion.div>
             )
         })
-    }, [data])
+    }, [data, PostItContent])
 
     return (
         <>
