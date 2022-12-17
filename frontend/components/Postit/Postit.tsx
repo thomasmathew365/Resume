@@ -13,7 +13,8 @@ export default function Postit({ children }: ComponentWithChildren): ReactElemen
   const paperColor = getRandomArrayValue(paperColors);
 
   return (
-    <div className={classNames(styles["paper"], styles[`paper-${paperColor}`])} style={{transform: `rotate(${getRandomArrayValue(paperRotationValues)}deg)`}}>
+    <div className={classNames(styles["paper"], styles[`paper-${paperColor}`])} 
+    style={{transform: `rotate(${getRandomArrayValue(paperRotationValues)}deg)`}}>
       <div className={classNames(styles["pin"], styles[`pin-${getRandomArrayValue(pinkLocation)}`])}>
         <div className={styles["shadow"]}></div>
         <div className={styles["metal"]}></div>

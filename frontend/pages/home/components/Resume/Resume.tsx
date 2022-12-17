@@ -85,7 +85,8 @@ export default function Resume(): ReactElement {
                             <li>{resumeData.basics.email}</li>
                             <li>{resumeData.basics.location.address}</li>
                             <li><a className={classNames(styles["link"])} rel="noreferrer" href={`https://${resumeData.basics.website}`} target={"_blank"}>{resumeData.basics.website}</a></li>
-                            <li><a className={classNames(styles["link"])} rel="noreferrer" href="https://github.com/thomasmathew365" target={"_blank"}>Thomasmathew365</a></li>
+                            <li><a className={classNames(styles["link"])} rel="noreferrer" 
+                            href="https://github.com/thomasmathew365" target={"_blank"}>Thomasmathew365</a></li>
                             <li><a className={classNames(styles["link"])} rel="noreferrer" href="https://linkedin.com/in/thomasmathew365" target={"_blank"}>Thomasmathew365</a></li>
                         </ul>
                     </div>

@@ -2,6 +2,7 @@ import { faGithubAlt, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classNames from 'classnames';
+import Router from 'next/router';
 import { ReactElement, useCallback } from 'react';
 
 import { LARGE_NAV_ITEMS, SMALL_NAV_ITEMS } from '../../constants/navigation';
@@ -11,7 +12,7 @@ import styles from './Navbar.module.scss';
 
 export default function Navbar({ setMenuOpen, setSelectedMenuGroup, setSelectMenuItem }: NavFunctionTypes): ReactElement {
 
-  const setMenuState = useCallback((groupIndex: number) => (itemName: string)=> {
+  const setMenuState = useCallback((groupIndex: number) => (itemName: string) => {
     setSelectedMenuGroup(groupIndex);
     setSelectMenuItem(itemName);
     setMenuOpen();
@@ -37,7 +38,12 @@ export default function Navbar({ setMenuOpen, setSelectedMenuGroup, setSelectMen
                       styles["nav-item"],
                       styles["nav-item-large"]
                     )}
-                    onClick={() => setMenuState(0)(title)}
+                    onClick={() => {
+                      Router.push({
+                        pathname: '/home'
+                      })
+                      setMenuState(0)(title)
+                    }}
                   >
                     {title}
                   </div>
@@ -51,7 +57,12 @@ export default function Navbar({ setMenuOpen, setSelectedMenuGroup, setSelectMen
                       styles["nav-item"],
                       styles["nav-item-small"]
                     )}
-                    onClick={() => setMenuState(1)(title)}
+                    onClick={() => {
+                      Router.push({
+                        pathname: '/info'
+                      })
+                      setMenuState(1)(title)
+                    }}
                   >
                     {title}
                   </div>

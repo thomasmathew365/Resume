@@ -14,11 +14,11 @@ import styles from './Wall.module.scss';
 const container = {
     hidden: {
         opacity: 0,
-        x: "-100vw"
+        // x: "-100vw"
     },
     show: {
         opacity: 1,
-        x: "0",
+        // x: "0",
         transition: {
             staggerChildren: 0.1,
             delay: 0.2,
