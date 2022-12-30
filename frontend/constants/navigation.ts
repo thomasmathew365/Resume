@@ -1,3 +1,3 @@
-export const LARGE_NAV_ITEMS = ["HOME", "RESUME", "MY WORK"];
+export const LARGE_NAV_ITEMS = ["HOME", "RESUME", "WALL"];
 
-export const SMALL_NAV_ITEMS = ["BLOG", "CONTACT", "WALL"];
+export const SMALL_NAV_ITEMS = ["BLOG", "CONTACT", "MY WORK"];

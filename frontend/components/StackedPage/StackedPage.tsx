@@ -17,14 +17,29 @@ interface StackedPageProps extends NavFunctionTypes {
 
 const inactiveStyles = [
   {
-    transform: "translate3d(0px, 75%, -280px)",
+    transform: "translate3d(0px, 75%, -240px)",
     zIndex: 0,
     opacity: 0.9,
   },
   {
-    transform: "translate3d(0px, 75%, -360px)",
+    transform: "translate3d(0px, 75%, -280px)",
     zIndex: -1,
     opacity: 0.7,
+  },
+  {
+    transform: "translate3d(0px, 75%, -320px)",
+    zIndex: -2,
+    opacity: 0.6,
+  },
+  {
+    transform: "translate3d(0px, 75%, -360px)",
+    zIndex: -3,
+    opacity: 0.5,
+  },
+  {
+    transform: "translate3d(0px, 75%, -400px)",
+    zIndex: -4,
+    opacity: 0.4,
   },
 ];
 
@@ -57,12 +72,12 @@ export default function StackedPage({
             style={inactiveStyles[styleIndex]}
             className={classNames(
               style["page"],
-              menuOpen ? style["opened"] : "",
+              menuOpen ? style["opened"] : style["closed"],
               isInactive ? style["active"] : style["inactive"]
             )}
             onClick={() => setMenuState(Number(pageIndex.slice(0, 1)))(name)}
           >
-            <div className={classNames(style["page-title"])}>{name}</div>
+            <div className={classNames(style["page-title"], !menuOpen && style["active"])}>{name}</div>
             {children}
           </div>
         );

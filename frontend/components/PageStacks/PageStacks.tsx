@@ -10,14 +10,12 @@ interface pageListType {
 
 interface PageStacksProps extends NavFunctionTypes {
   pageList: pageListType[];
-  groupIndex: number;
   pageIndexState: string;
   menuOpen: boolean;
 }
 
 export default function PageStacks({
   pageList,
-  groupIndex,
   pageIndexState,
   menuOpen,
   setSelectMenuItem,
@@ -28,9 +26,9 @@ export default function PageStacks({
     () => 
       pageList.sort((a: pageListType, b: pageListType) =>
         {          
-          return`${groupIndex}${a.name}` === pageIndexState ? -1 : 1}
+          return`${a.name}` === pageIndexState ? -1 : 1}
       ),
-    [pageList, groupIndex, pageIndexState]
+    [pageList, pageIndexState]
   );
 
   return (
@@ -38,10 +36,10 @@ export default function PageStacks({
       {sortedPageList.map(({ name, component }, key) => {
         return (
           <StackedPage
-          setMenuOpen={setMenuOpen}
+            setMenuOpen={setMenuOpen}
             name={name}
             key={key}
-            pageIndex={`${groupIndex}${name}`}
+            pageIndex={`${name}`}
             pageIndexState={pageIndexState}
             styleIndex={menuOpen ? key - 1 : -1}
             setSelectedMenuGroup={setSelectedMenuGroup}
