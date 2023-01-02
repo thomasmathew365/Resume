@@ -9,7 +9,7 @@ import { NavigationContext } from '../../lib/navigationContext';
 import { NavFunctionTypes } from '../../pages/_app';
 import styles from './Navbar.module.scss';
 
-export default function Navbar({ setMenuOpen, setSelectedMenuGroup, setSelectMenuItem }: NavFunctionTypes): ReactElement {
+export default function Navbar({ setMenuOpen, setSelectMenuItem }: NavFunctionTypes): ReactElement {
 
   const setMenuState = useCallback((itemName: string) => {
     // setSelectedMenuGroup(groupIndex);
