@@ -8,49 +8,20 @@
   box-shadow: 0 -1px 10px rgba(0, 0, 0, 0.1);
   z-index: 1;
   cursor: pointer;
-  transform: translate3d(0px, 0px, 0px);
-  -webkit-transition: -webkit-transform 0.45s, opacity 0.45s;
-  transition: transform 0.45s, opacity 0.45s;
+  -webkit-transition: -webkit-transform 0.25s, opacity 0.25s;
+  transition: transform 0.25s, opacity 0.25s;
   transition-timing-function: ease, ease;
   -webkit-transition-timing-function: cubic-bezier(0.6, 0, 0.4, 1);
   transition-timing-function: cubic-bezier(0.6, 0, 0.4, 1);
   position: relative;
-}
-
-.page.opened {
-  transform: translate3d(0px, 75%, -200px);
-}
-
-.page.closed.active {
-  // transform: translate3d(0px, 0, 0px);
-  -webkit-transition: -webkit-transform 0.45s, opacity 0.45s;
-  transition: transform 0.45s, opacity 0.45s;
-  transition-timing-function: ease-in-out, ease-in-out;
-  -webkit-transition-timing-function: cubic-bezier(0.6, 0, 0.4, 1);
-  transition-timing-function: cubic-bezier(0.6, 0, 0.4, 1);
-}
-
-.page.opened.active {
-  display: block;
-}
-
-.page.opened.inactive {
-  display: block;
-  position: absolute;
-  z-index: 0;
-  top: 0;
-  opacity: 0;
-}
-
-.page.active {
   display: block;
 }
 
 .page.inactive {
-  transform: translate3d(0px, 100%, 0px);
-  z-index: -10;
+  display: block;
+  position: absolute;
+  top: 0;
 }
-
 
 
 .page-title {

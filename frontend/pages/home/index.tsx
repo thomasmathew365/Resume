@@ -26,7 +26,6 @@ export default function Home({
   wallData,
   selectMenuItem,
   menuOpen,
-  setSelectedMenuGroup,
   setSelectMenuItem,
   setMenuOpen
 }: HomeProps) {
@@ -34,7 +33,6 @@ export default function Home({
   return (
     <PageStacks
       menuOpen={menuOpen}
-      setSelectedMenuGroup={setSelectedMenuGroup}
       setSelectMenuItem={setSelectMenuItem}
       setMenuOpen={setMenuOpen}
       pageIndexState={`${selectMenuItem}`}

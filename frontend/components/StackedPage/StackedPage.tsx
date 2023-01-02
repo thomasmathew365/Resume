@@ -1,4 +1,6 @@
 import classNames from 'classnames';
+import { motion } from 'framer-motion';
+import { useRouter } from 'next/router';
 import React, { useCallback } from 'react';
 
 import { NavigationContext } from '../../lib/navigationContext';
@@ -13,35 +15,65 @@ interface StackedPageProps extends NavFunctionTypes {
   styleIndex: number;
 }
 
-// style="transform: translate3d(0px, 75%, -300px); z-index: 0; opacity: 0.8;background: pink;"
-
-const inactiveStyles = [
-  {
+const variants = {
+  active: {
+    transform: "translate3d(0px, 0px, 0px)",
+    zIndex: 1,
+    opacity: 1
+  },
+  inactive0: { transform: "translate3d(0px, 75%, -200px)" },
+  inactive1: {
     transform: "translate3d(0px, 75%, -240px)",
     zIndex: 0,
-    opacity: 0.9,
+    opacity: 0.9
   },
-  {
+  inactive2: {
     transform: "translate3d(0px, 75%, -280px)",
     zIndex: -1,
-    opacity: 0.7,
+    opacity: 0.7
   },
-  {
+  inactive3: {
     transform: "translate3d(0px, 75%, -320px)",
     zIndex: -2,
-    opacity: 0.6,
+    opacity: 0.6
   },
-  {
+  inactive4: {
     transform: "translate3d(0px, 75%, -360px)",
     zIndex: -3,
-    opacity: 0.5,
+    opacity: 0.5
   },
-  {
+  inactive5: {
     transform: "translate3d(0px, 75%, -400px)",
     zIndex: -4,
-    opacity: 0.4,
+    opacity: 0.5
   },
-];
+  hidden1: {
+    transform: "translate3d(0px, 0px, 0px)",
+    zIndex: 0,
+    opacity: 0.9
+  },
+  hidden2: {
+    transform: "translate3d(0px, 0px, 0px)",
+    zIndex: -1,
+    opacity: 0.7
+  },
+  hidden3: {
+    transform: "translate3d(0px, 0px, 0px)",
+    zIndex: -2,
+    opacity: 0.6
+  },
+  hidden4: {
+    transform: "translate3d(0px, 0px, 0px)",
+    zIndex: -3,
+    opacity: 0.5
+  },
+  hidden5: {
+    transform: "translate3d(0px, 0px, 0px)",
+    zIndex: -4,
+    opacity: 0.5
+  },
+
+}
 
 export default function StackedPage({
   name,
@@ -50,38 +82,41 @@ export default function StackedPage({
   pageIndexState,
   styleIndex,
   setSelectMenuItem,
-  setSelectedMenuGroup,
   setMenuOpen,
 }: StackedPageProps) {
+  const router = useRouter()
+
   const setMenuState = useCallback(
-    (groupIndex: number) => (itemName: string) => {
-      setSelectedMenuGroup(groupIndex);
+    (itemName: string) => {
       setSelectMenuItem(itemName);
+      console.log(`/${itemName.toLocaleLowerCase()}`);
+
+      router.push(`/${itemName.toLocaleLowerCase()}`);
       setMenuOpen();
       return undefined; //to appease onclick return type
     },
-    [setSelectedMenuGroup, setSelectMenuItem, setMenuOpen]
+    [setSelectMenuItem, setMenuOpen, router]
   );
 
   return (
     <NavigationContext.Consumer>
       {({ menuOpen }) => {
-        const isInactive = pageIndex === pageIndexState;
+        const isActive = pageIndex === pageIndexState;
         return (
-          <div
-            style={inactiveStyles[styleIndex]}
+          <motion.div
             className={classNames(
               style["page"],
-              menuOpen ? style["opened"] : style["closed"],
-              isInactive ? style["active"] : style["inactive"]
+              isActive ? style["active"] : style["inactive"]
             )}
-            onClick={() => setMenuState(Number(pageIndex.slice(0, 1)))(name)}
+            animate={menuOpen ? `inactive${styleIndex}` : isActive ? "active" : `hidden${styleIndex}`}
+            variants={variants}
+            onClick={() => menuOpen && setMenuState(name)}
           >
             <div className={classNames(style["page-title"], !menuOpen && style["active"])}>{name}</div>
             {children}
-          </div>
+          </motion.div>
         );
       }}
-    </NavigationContext.Consumer>
+    </NavigationContext.Consumer >
   );
 }

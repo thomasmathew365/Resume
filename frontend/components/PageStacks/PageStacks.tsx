@@ -19,7 +19,6 @@ export default function PageStacks({
   pageIndexState,
   menuOpen,
   setSelectMenuItem,
-  setSelectedMenuGroup,
   setMenuOpen
 }: PageStacksProps) {
   const sortedPageList = useMemo(
@@ -41,8 +40,7 @@ export default function PageStacks({
             key={key}
             pageIndex={`${name}`}
             pageIndexState={pageIndexState}
-            styleIndex={menuOpen ? key - 1 : -1}
-            setSelectedMenuGroup={setSelectedMenuGroup}
+            styleIndex={key}
             setSelectMenuItem={setSelectMenuItem}
           >
             {component}
