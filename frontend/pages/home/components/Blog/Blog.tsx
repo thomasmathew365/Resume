@@ -49,7 +49,7 @@ export default function Blog({ data }: any): ReactElement {
             </AnimatePresence>
 
             <div className={classNames(styles["cards"])} ref={cardsRef}>
-                {data.map((post: any, k: number) => {
+                {data && data.map((post: any, k: number) => {
                     return (
                         <motion.div
                             className={classNames(styles["card"])}

@@ -1,5 +1,6 @@
 import imageUrlBuilder from '@sanity/image-url';
 
+import { Body } from '../components/PostBody/Post.type';
 import BlogComponent from '../pages/home/components/Blog';
 import HomeComponent from '../pages/home/components/Home';
 import ResumeComponent from '../pages/home/components/Resume';
