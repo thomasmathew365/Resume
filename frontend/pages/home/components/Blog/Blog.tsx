@@ -3,10 +3,10 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 import { ReactElement, useEffect, useRef, useState } from 'react';
 
+import { urlFor } from '../../../../utils/utils';
 import styles from './Blog.module.scss';
 
-export default function Blog(): ReactElement {
-
+export default function Blog({ data }: any): ReactElement {
     const cardsRef = useRef<any>(null);
     const router = useRouter();
     const [selectedId, setSelectedId] = useState<null | number>(null);
@@ -49,7 +49,7 @@ export default function Blog(): ReactElement {
             </AnimatePresence>
 
             <div className={classNames(styles["cards"])} ref={cardsRef}>
-                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((v, k) => {
+                {data.map((post: any, k: number) => {
                     return (
                         <motion.div
                             className={classNames(styles["card"])}
@@ -57,18 +57,17 @@ export default function Blog(): ReactElement {
                             key={k}
                             onClick={(e) => {
                                 e.preventDefault();
-                                router.push(`/blog/post${v}`);
+                                router.push(`/blog/${post.slug.current}`);
                                 setSelectedId(k + 1);
                             }}>
                             <div className={classNames(styles["card-content"])}>
                                 <div className={classNames(styles["card-image"])}>
-                                    {/* <i class="fa-duotone fa-apartment"></i> */}
+                                    <img className={classNames(styles["post-main-image"])} key={k} src={urlFor(post.mainImage).url()} /> 
                                 </div>
                                 <div className={classNames(styles["card-info-wrapper"])}>
                                     <div className={classNames(styles["card-info"])}>
                                         <div className={classNames(styles["card-info-title"])}>
-                                            <h3>Apartments{v}</h3>
-                                            <h4>Places to be apart. Wait, what?</h4>
+                                            <h3>{post.title}</h3>
                                         </div>
                                     </div>
                                 </div>

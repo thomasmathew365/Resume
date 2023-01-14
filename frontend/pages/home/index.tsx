@@ -1,35 +1,25 @@
+import { useEffect } from 'react';
+
 import PageStacks from '../../components/PageStacks';
 import { LARGE_NAV_ITEMS, SMALL_NAV_ITEMS } from '../../constants/navigation';
-import SanityClient from '../../utils/sanityClient';
-import { NavFunctionTypes } from '../_app';
-import BlogComponent from './components/Blog';
-import HomeComponent from './components/Home';
-import ResumeComponent from './components/Resume';
-import WallComponent from './components/Wall';
-
-const componentMap: { [key: string]: (data: any) => JSX.Element } = {
-  "HOME": () => <HomeComponent />,
-  "RESUME": () => <ResumeComponent />,
-  "WALL": (dataProps) => <WallComponent data={dataProps} />,
-  "BLOG": () => <BlogComponent />, 
-  "CONTACT": () => <HomeComponent />, 
-  "MY WORK": (dataProps) => <WallComponent data={dataProps} />
-}
-
-interface HomeProps extends NavFunctionTypes {
-  wallData: any;
-  menuOpen: boolean;
-  selectMenuItem: string;
-}
+import { HomeProps } from '../../utils/commonTypes';
+import { componentMap, loadSanityData } from '../../utils/utils';
 
 export default function Home({
   wallData,
+  postData,
   selectMenuItem,
   menuOpen,
   setSelectMenuItem,
   setMenuOpen
 }: HomeProps) {
-  const dataProps = [null, null, wallData];
+  
+  const dataProps = [null, null, wallData, postData];
+
+  useEffect(() => {
+    setSelectMenuItem('HOME');
+  }, [setSelectMenuItem]);
+
   return (
     <PageStacks
       menuOpen={menuOpen}
@@ -45,12 +35,6 @@ export default function Home({
 }
 
 export async function getStaticProps() {
-  const client = new SanityClient();
-  const wallData = await client.Query(`*[_type == 'wall']`);
-  return {
-    props: {
-      wallData,
-    },
-  };
+  return await loadSanityData();
 }
 

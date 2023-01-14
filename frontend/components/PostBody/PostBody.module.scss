@@ -1,0 +1,11 @@
+.code {
+    background: var(--shade);
+    padding: 0 2px;
+    border-radius: 4px;
+}
+
+.image {
+    max-width: calc(var(--main-width) + var(--gutter));
+    padding-right: 4em;
+    margin: 0 auto;
+}

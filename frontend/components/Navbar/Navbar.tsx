@@ -68,19 +68,24 @@ export default function Navbar({ setMenuOpen, setSelectMenuItem }: NavFunctionTy
                   menuOpen ? styles["opened"] : styles["closed"]
                 )}
               >
-                <FontAwesomeIcon
-                  icon={faGithubAlt}
-                  className={classNames(styles["nav-social-link"])}
-                />
-                <FontAwesomeIcon
-                  icon={faLinkedin}
-                  className={classNames(styles["nav-social-link"])}
-                />
-                <FontAwesomeIcon
-                  icon={faEnvelope}
-                  className={classNames(styles["nav-social-link"])}
-                  href={"mailto:thomasmathew365@gmail.com"}
-                />
+                <a href={"https://github.com/thomasmathew365"} target={"_blank"} rel="noreferrer">
+                  <FontAwesomeIcon
+                    icon={faGithubAlt}
+                    className={classNames(styles["nav-social-link"])}
+                  />
+                </a>
+                <a href={"https://www.linkedin.com/in/thomasmathew365/"} target={"_blank"} rel="noreferrer">
+                  <FontAwesomeIcon
+                    icon={faLinkedin}
+                    className={classNames(styles["nav-social-link"])}
+                  />
+                </a>
+                <a href={"mailto:thomasmathew365@gmail.com"} target={"_blank"} rel="noreferrer">
+                  <FontAwesomeIcon
+                    icon={faEnvelope}
+                    className={classNames(styles["nav-social-link"])}
+                  />
+                </a>
               </div>
             </div>
 

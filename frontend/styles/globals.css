@@ -22,6 +22,7 @@ font-family: 'Gochi Hand', cursive;
   --paper-shadow: rgba(255,255,255, 0.2);
   --card-bg-color: rgb(20, 20, 20);
   --card-color: rgb(23, 23, 23);
+  --shade: #080A0C;
 }
 
 html {

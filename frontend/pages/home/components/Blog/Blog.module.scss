@@ -72,6 +72,62 @@
   height: 100vh;
 }
 
+.post-container {
+  background-color: #333;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.post-header,
+.text-content {
+  --main-width: 35rem;
+  --gutter: 1rem;
+  padding: 1.25rem 0;
+  line-height: 1.6;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.post-header-text {
+  background: var(--yellow);
+  padding: .64rem;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  color: #000000;
+}
+
+.text-content {
+  max-width: calc(var(--main-width) + var(--gutter));
+  padding: 2em;
+  margin: 0 auto;
+  font-size: 1.2em;
+}
+
+.post-main-image {
+  object-fit: cover;
+  height: 140px;
+  width: 100%;
+}
+
+
+.back-button {
+  color: var(--yellow);
+  margin: 1em;
+  float: left;
+  font-size: 4em;
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.back-button:hover {
+  opacity: 1;
+}
+
 /* -- ↓ ↓ ↓ extra card content styles ↓ ↓ ↓ -- */
 
 //   h1, h2, h3, h4, span {

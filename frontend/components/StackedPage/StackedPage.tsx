@@ -89,13 +89,11 @@ export default function StackedPage({
   const setMenuState = useCallback(
     (itemName: string) => {
       setSelectMenuItem(itemName);
-      console.log(`/${itemName.toLocaleLowerCase()}`);
-
-      router.push(`/${itemName.toLocaleLowerCase()}`);
+      // router.push(`/${itemName.toLocaleLowerCase()}`);
       setMenuOpen();
       return undefined; //to appease onclick return type
     },
-    [setSelectMenuItem, setMenuOpen, router]
+    [setSelectMenuItem, setMenuOpen]
   );
 
   return (
