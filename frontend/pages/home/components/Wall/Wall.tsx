@@ -113,7 +113,7 @@ export default function Wall({ data }: any): ReactElement {
     );
 
     const PostIts = useMemo(() => {
-        return data && data.map(({ comment, name, email }: any, k: number) => {
+        return data && [].map(({ comment, name, email }: any, k: number) => {
             return (
                 <motion.div key={k} variants={item} >
                     <Postit ><PostItContent comment={comment} name={name} email={email}/></Postit>
