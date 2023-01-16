@@ -240,3 +240,35 @@
     width: 100%;
   }
 }
+
+.loading-container > * {
+  margin-bottom: 0.5em;
+}
+
+.loading_bg {
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: sk_bg_animation;
+  animation-timing-function: linear;
+  background: var(--grey);
+  background: linear-gradient(to right, var(--dark-grey) 8%, var(--grey) 18%, var(--dark-grey) 33%);
+  background-size: 800px 104px;
+  position: relative;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+
+@keyframes sk_bg_animation{
+  0%{background-position:-468px 0}
+  100%{background-position:468px 0}
+}
+
+.loading_bg.small {
+  height: 48px;
+}
+
+.loading_bg.big {
+  height: 64px;
+}
